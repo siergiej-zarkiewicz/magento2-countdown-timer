@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Zarkiewicz\CountdownTimer\Api\TimerRepositoryInterface" type="Zarkiewicz\CountdownTimer\Model\TimerRepository"/>
+    <preference for="Zarkiewicz\CountdownTimer\Api\TimersProviderInterface" type="Zarkiewicz\CountdownTimer\Model\Timers\Provider"/>
+    <preference for="Zarkiewicz\CountdownTimer\Api\Data\TimerInterface" type="Zarkiewicz\CountdownTimer\Model\Timer"/>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Magento\Catalog\Api\Data\ProductInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="product_timers_reader" xsi:type="string">Zarkiewicz\CountdownTimer\Model\Product\Timer\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="product_timers_create" xsi:type="string">Zarkiewicz\CountdownTimer\Model\Product\Timer\CreateHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="product_timers_update" xsi:type="string">Zarkiewicz\CountdownTimer\Model\Product\Timer\UpdateHandler</item>
+                    </item>
+                    <item name="delete" xsi:type="array">
+                        <item name="product_timers_delete" xsi:type="string">Zarkiewicz\CountdownTimer\Model\Product\Timer\DeleteHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Zarkiewicz\CountdownTimer\Api\Data\TimerInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">zarkiewicz_countdown_timer</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Api\Data\ProductInterface">
+        <plugin name="ProductExtensionAttributeOperations" type="Zarkiewicz\CountdownTimer\Plugin\Catalog\Model\Product\ProductAttributesLoad"/>
+    </type>
+</config>

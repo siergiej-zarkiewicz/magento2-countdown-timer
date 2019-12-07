@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer module.xml file.
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Zarkiewicz_CountdownTimer" setup_version="0.0.1">
+        <sequence>
+            <module name="Magento_Catalog"/>
+        </sequence>
+    </module>
+</config>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer extension_attributes.xml file.
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="product_timers" type="Zarkiewicz\CountdownTimer\Api\Data\TimerInterface[]">
+<!--            <resources>-->
+<!--                <resource ref="permission"/>-->
+<!--            </resources>-->
+            <join reference_table="zarkiewicz_countdown_timer" reference_field="product_id" join_on_field="entity_id">
+                <field>from_date</field>
+                <field>to_date</field>
+            </join>
+        </attribute>
+    </extension_attributes>
+</config>

@@ -1,0 +1,21 @@
+{
+    "zarkiewicz_countdown_timer": {
+        "column": {
+            "entity_id": true,
+            "store_id": true,
+            "product_id": true,
+            "from_date": true,
+            "to_date": true,
+            "created_at": true
+        },
+        "index": {
+            "ZARKIEWICZ_COUNTDOWN_TIMER_PRODUCT_ID": true,
+            "ZARKIEWICZ_COUNTDOWN_TIMER_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "ZARKIEWICZ_COUNTDOWN_TIMER_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true,
+            "ZARKIEWICZ_COUNTDOWN_TIMER_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

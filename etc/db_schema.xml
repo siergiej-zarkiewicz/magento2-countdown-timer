@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="zarkiewicz_countdown_timer" resource="default" engine="innodb"
+           comment="Zarkiewicz Countdown Timer Table">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false"
+                comment="Store Id"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Product Id"/>
+        <column xsi:type="datetime" name="from_date" on_update="false" nullable="true" comment="From date"/>
+        <column xsi:type="datetime" name="to_date" on_update="false" nullable="true" comment="To date"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="Created at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+            <column name="store_id"/>
+            <column name="product_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ZARKIEWICZ_COUNTDOWN_TIMER_PROD_ID_CAT_PROD_ENTT_ID"
+                    table="zarkiewicz_countdown_timer" column="product_id" referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="ZARKIEWICZ_COUNTDOWN_TIMER_STORE_ID_STORE_STORE_ID"
+                    table="zarkiewicz_countdown_timer" column="store_id" referenceTable="store"
+                    referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="ZARKIEWICZ_COUNTDOWN_TIMER_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+        <index referenceId="ZARKIEWICZ_COUNTDOWN_TIMER__STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>

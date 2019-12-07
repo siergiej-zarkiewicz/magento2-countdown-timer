@@ -1,0 +1,31 @@
+<?php
+/**
+ * Zarkiewicz\CountdownTimer.
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+/** Product timer template */
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Zarkiewicz\CountdownTimer\ViewModel\Product\Timer $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+<div class="product-timer" data-bind="scope: 'product-timer'">
+   <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "product-timer": {
+                        "component": "Zarkiewicz_CountdownTimer/js/product/view/timer",
+                        "data": <?= /* @escapeNotVerified */ $viewModel->getJsonConfigurationHtmlEscaped() ?>
+                    }
+                }
+            }
+        }
+    }
+</script>

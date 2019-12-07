@@ -1,0 +1,6 @@
+<div>Timer:
+    <!-- ko foreach: { data: getTimerData(), as: 'item' } -->
+    <div data-bind="text: item.label"></div>
+    <div data-bind="text: item.value"></div>
+    <!-- /ko -->
+</div>
