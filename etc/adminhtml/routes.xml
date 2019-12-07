@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="timer" frontName="timer">
+            <module name="Zarkiewicz_CountdownTimer" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

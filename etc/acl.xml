@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Zarkiewicz_CountdownTimer::timer" title="Timers" sortOrder="10">
+                    <resource id="Zarkiewicz_CountdownTimer::timer_save" title="Save Timer" sortOrder="10" />
+                    <resource id="Zarkiewicz_CountdownTimer::timer_delete" title="Delete Department" sortOrder="20" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

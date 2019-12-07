@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zarkiewicz\CountdownTimer
+ *
+ * @package Zarkiewicz\CountdownTimer
+ * @author Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
+ * @copyright Siergiej Zarkiewicz <ssiergiej.zarkiewicz@gmail.com>
+ * @license Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Zarkiewicz_CountdownTimer::timer_head" title="Timers" module="Zarkiewicz_CountdownTimer" sortOrder="100" resource="Zarkiewicz_CountdownTimer::job_head"/>
+        <add id="Zarkiewicz_CountdownTimer::timer" title="Timers" module="Zarkiewicz_CountdownTimer" sortOrder="10" parent="Zarkiewicz_CountdownTimer::timer_head" action="timer/index" resource="Zarkiewicz_CountdownTimer::timer" />
+        <add id="Zarkiewicz_CountdownTimer::timer_manage" title="All Timers" translate="title" module="Zarkiewicz_CountdownTimer" sortOrder="20" parent="Zarkiewicz_CountdownTimer::timer_head" action="timer/manage" resource="Zarkiewicz_CountdownTimer::timer"/>
+    </menu>
+</config>
