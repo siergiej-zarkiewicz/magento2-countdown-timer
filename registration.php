@@ -7,7 +7,6 @@
  * @copyright Siergiej Zarkiewicz <siergiej.zarkiewicz@gmail.com>
  * @license Open Software License (OSL 3.0)
  */
-// test
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
     'Zarkiewicz_CountdownTimer',
